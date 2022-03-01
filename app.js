@@ -1,5 +1,6 @@
 const display = document.getElementById("display");
 let number;
+let operator;
 let number2;
 let buttons = Array.from(document.getElementsByClassName("button"));
 
@@ -17,19 +18,23 @@ buttons.map((button) => {
       case "+":
         if (display.innerText) {
           operator = "+";
-          number = display.innerText;
+
+          number= parseInt(display.innerText);
           display.innerText = "";
         }
         break;
       case "-":
         if (display.innerText) {
           operator = "+";
-          number = display.innerText;
+          number= parseInt(display.innerText);
           display.innerText = "";
         }
       case "=":
-          number2 = display.innerText;
+
+          number2= parseInt(display.innerText);
           display.innerText = operate(number,number2,operator);
+          
+          break;
           
       default:
         display.innerText += e.target.innerText;
@@ -38,10 +43,10 @@ buttons.map((button) => {
 });
 
 function add(a, b) {
-  return a + b;
+  return a+b;
 }
 function substract(a, b) {
-  return a - b;
+  return a-b;
 }
 
 function multiply(a, b) {
@@ -55,16 +60,16 @@ function divide(a, b) {
 function operate(a, b, operator) {
   switch (operator) {
     case "+":
-      add(a, b);
+      return add(a, b);
       break;
     case "-":
-      substract(a, b);
+      return substract(a, b);
       break;
     case "*":
-      multiply(a, b);
+      return multiply(a, b);
       break;
     case "/":
-      divide(a, b);
+      return divide(a, b);
       break;
-  }
+  };
 }
