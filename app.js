@@ -19,34 +19,38 @@ buttons.map((button) => {
         if (display.innerText) {
           operator = "+";
 
-          number = parseInt(display.innerText);
+          number= parseInt(display.innerText);
           display.innerText = "";
         }
         break;
       case "-":
         if (display.innerText) {
           operator = "-";
-          number = parseInt(display.innerText);
+          number= parseInt(display.innerText);
           display.innerText = "";
         }
+        break;
       case "*":
         if (display.innerText) {
           operator = "*";
-          number = parseInt(display.innerText);
+          number= parseInt(display.innerText);
           display.innerText = "";
         }
+        break;
       case "/":
         if (display.innerText) {
           operator = "/";
-          number = parseInt(display.innerText);
+          number= parseInt(display.innerText);
           display.innerText = "";
         }
-      case "=":
-        number2 = parseInt(display.innerText);
-        display.innerText = operate(number, number2, operator);
-
         break;
+      case "=":
 
+          number2= parseInt(display.innerText);
+          display.innerText = operate(number,number2,operator);
+          
+          break;
+          
       default:
         display.innerText += e.target.innerText;
     }
@@ -54,10 +58,10 @@ buttons.map((button) => {
 });
 
 function add(a, b) {
-  return a + b;
+  return a+b;
 }
 function substract(a, b) {
-  return a - b;
+  return a-b;
 }
 
 function multiply(a, b) {
@@ -82,5 +86,5 @@ function operate(a, b, operator) {
     case "/":
       return divide(a, b);
       break;
-  }
+  };
 }
